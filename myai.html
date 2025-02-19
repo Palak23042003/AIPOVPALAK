@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Advanced Chatbot</title>
+    <STYle>
+:root {
+    --bg-dark: #0a0a0a;
+    --text-light: #ffffff;
+    --muted: #575757;
+    --primary: #6366f1;
+    --deep-blue: #172554;
+    --bot-message: #18181b;
+    --error-message: #ef4444;
+    --border: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background: var(--bot-message);
+}
+
+h1 span.advanced {
+    color: var(--primary);
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+button:hover {
+    color: var(--muted);
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    background: var(--deep-blue);
+    color: var(--text-light);
+    text-align: center;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.banner a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.banner button {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+/* Main Chat Area */
+main {
+    max-width: 64rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+.welcome-message {
+    font-size: 1.5rem;
+    background: linear-gradient(to right, #6366f1, #ff007f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.chat-box {
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    background: var(--bot-message);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Chat Messages */
+.message {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+}
+
+.user-message {
+    background: var(--primary);
+    color: var(--text-light);
+    text-align: right;
+}
+
+.bot-message {
+    background: var(--bot-message);
+    color: var(--text-light);
+}
+
+.error-message {
+    background: var(--error-message);
+    color: var(--text-light);
+}
+
+/* Input Field */
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    background: var(--bot-message);
+    color: var(--text-light);
+    border-radius: 0.5rem;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+#sendBtn {
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#sendBtn:hover {
+    background: var(--muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .chat-box {
+        max-height: calc(100vh - 180px);
+    }
+}
+
+    </STYle>
+
+    <script defer src="MYAI.JS"></script>
+</head>
+<body>
+    <header>
+        <button id="menuBtn" aria-label="Open menu">☰</button>
+        <h1><span>Gemini</span> <span class="advanced">Advanced</span></h1>
+        <button id="notifBtn" aria-label="Notifications">🔔</button>
+    </header>
+    
+    <div class="banner" role="alert">
+        <p>New update available! <a href="#">Learn more</a></p>
+        <button id="closeBanner" aria-label="Close banner">✕</button>
+    </div>
+    
+    <main>
+        <div class="chat-container">
+            <p class="welcome-message">Hello,Palak.</p>
+            <div class="chat-box" role="log"></div>
+            <div class="input-container">
+                <input type="text" id="userInput" placeholder="Type a message..." aria-label="Chat input">
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
